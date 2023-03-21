@@ -202,14 +202,6 @@ public class MON_Boss extends Character {
         gp.monster[0][100].worldX = 137 * gp.tileSize;
         gp.monster[0][100].worldY = 20 * gp.tileSize;
 
-        gp.monster[0][101] = new MON_Joltik(gp);
-        gp.monster[0][101].worldX = 130 * gp.tileSize;
-        gp.monster[0][101].worldY = 20 * gp.tileSize;
-
-        gp.monster[0][102] = new MON_Joltik(gp);
-        gp.monster[0][102].worldX = 118 * gp.tileSize;
-        gp.monster[0][102].worldY = 20 * gp.tileSize;
-
         gp.monster[0][103] = new MON_Joltik(gp);
         gp.monster[0][103].worldX = 111 * gp.tileSize;
         gp.monster[0][103].worldY = 20 * gp.tileSize;
