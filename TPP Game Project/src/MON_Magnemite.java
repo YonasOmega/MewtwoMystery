@@ -39,27 +39,27 @@ public class MON_Magnemite extends Character {
         int yDistance = Math.abs(worldY - gp.player.worldY);
         int tileDistance = (xDistance + yDistance)/gp.tileSize;
 
-        if(onPath == false && tileDistance < 5){
+        if (onPath == false && tileDistance < 5){
             int i = new Random().nextInt(100)+1;
-                    if(i>50){
+                    if (i>50){
                         onPath= true;
                     }
 
         }
-        if(onPath==true&&tileDistance>20){
+        if (onPath==true&&tileDistance>20){
             onPath = false;
         }
     }
     public void setAction() {
 
-        if(onPath == true ) {
+        if (onPath == true ) {
             int goalCol = (gp.player.worldX + gp.player.solidArea.x)/gp.tileSize;
             int goalRow = (gp.player.worldY + gp.player.solidArea.y)/gp.tileSize;
 
             searchPath(goalCol, goalRow);
 
             int i = new Random().nextInt(100)+1;
-            if(i>97 && shotAvailableCounter == 45){
+            if (i>97 && shotAvailableCounter == 45){
                     OBJ_Player_Projectile proj = new OBJ_Player_Projectile(gp,this);
                     proj.set(this.worldX, this.worldY, gp.player.worldX, gp.player.worldY, "polar", true, this);
                     gp.projectileList.add(proj);
@@ -97,9 +97,9 @@ public class MON_Magnemite extends Character {
         actionLockCounter = 0;
 
         onPath=true;
-        if(gp.player.direction.equals("up-right") || gp.player.direction.equals("down-right")) {
+        if (gp.player.direction.equals("up-right") || gp.player.direction.equals("down-right")) {
             direction = "right";
-        } else if(gp.player.direction.equals("up-left") || gp.player.direction.equals("down-left")) {
+        } else if (gp.player.direction.equals("up-left") || gp.player.direction.equals("down-left")) {
             direction = "left";
         } else {
             direction = gp.player.direction;

@@ -32,7 +32,7 @@ public class MON_Boss extends Character {
     }
     public void getImage() {
         int i = 5;
-        if(inRage == false) {
+        if (inRage == false) {
             up1 = setup("TPP Game Project/res/monster/magnezone_down_1", gp.tileSize * i, gp.tileSize * i);
             up2 = setup("TPP Game Project/res/monster/magnezone_down_1", gp.tileSize * i, gp.tileSize * i);
             down1 = setup("TPP Game Project/res/monster/magnezone_down_1", gp.tileSize * i, gp.tileSize * i);
@@ -42,7 +42,7 @@ public class MON_Boss extends Character {
             left1 = setup("TPP Game Project/res/monster/magnezone_down_1", gp.tileSize * i, gp.tileSize * i);
             left2 = setup("TPP Game Project/res/monster/magnezone_down_1", gp.tileSize * i, gp.tileSize * i);
         }
-        if(inRage == true) {
+        if (inRage == true) {
             up1 = setup("TPP Game Project/res/monster/magnezone_down_2", gp.tileSize * i, gp.tileSize * i);
             up2 = setup("TPP Game Project/res/monster/magnezone_down_2", gp.tileSize * i, gp.tileSize * i);
             down1 = setup("TPP Game Project/res/monster/magnezone_down_2", gp.tileSize * i, gp.tileSize * i);
@@ -61,25 +61,25 @@ public class MON_Boss extends Character {
         int yDistance = Math.abs(worldY - gp.player.worldY);
         int tileDistance = (xDistance + yDistance)/gp.tileSize;
 
-        if(onPath == false && tileDistance < 5){
+        if (onPath == false && tileDistance < 5){
             int i = new Random().nextInt(100)+1;
-            if(i>50){
+            if (i>50){
                 onPath= true;
             }
 
         }
-        if(onPath==true&&tileDistance>20){
+        if (onPath==true&&tileDistance>20){
             onPath = false;
         }
     }
     public void setAction() {
 
-       if(inRage == false && life < 50) {
+       if (inRage == false && life < 50) {
             inRage = true;
             getImage();
             speed++;
         }
-        if(life <= 0) {
+        if (life <= 0) {
             BossDead = true;
 
             dying=true;
@@ -87,13 +87,13 @@ public class MON_Boss extends Character {
             gp.eHandler.setBossbattle(false);
 
         }
-        if(getTileDistance(gp.player) < 100) {
+        if (getTileDistance(gp.player) < 100) {
             moveTowardPlayer(60);
-            if(shotAvailableCounter1%25==0) {
+            if (shotAvailableCounter1%25==0) {
 //                System.out.println(shotAvailableCounter1+"\n"+"--------");
                 tempPlayerX=gp.player.worldX;
                 tempPlayerY=gp.player.worldY;
-                if(shotAvailableCounter%15==0) {
+                if (shotAvailableCounter%15==0) {
 
 
                     OBJ_Boss_Projectile proj = new OBJ_Boss_Projectile(gp, this);
@@ -101,15 +101,15 @@ public class MON_Boss extends Character {
                     gp.projectileList.add(proj);
                 }
             }
-            if(shotAvailableCounter1==50){
+            if (shotAvailableCounter1==50){
 
             }
-            if(shotAvailableCounter1 == 100){
+            if (shotAvailableCounter1 == 100){
                     shotAvailableCounter1 = 0;
 
 
             }
-            if(shotAvailableCounter1 < 100) {
+            if (shotAvailableCounter1 < 100) {
                 shotAvailableCounter1++;
             }
 
@@ -146,7 +146,7 @@ public class MON_Boss extends Character {
     }
     public void missle() {
 
-       if(inRage && missleCounter >= 400) {
+       if (inRage && missleCounter >= 400) {
 
             int  rightX = (gp.monster[0][2].getCenterX() )/gp.tileSize + 3;
             int leftX = (gp.monster[0][2].worldX)/gp.tileSize - 1;
@@ -181,7 +181,7 @@ public class MON_Boss extends Character {
             gp.monster[0][29+i].worldX = validX;
             gp.monster[0][29+i].worldY = validY;
             i++;
-            if(i==10){
+            if (i==10){
                 i=1;
             }
            System.out.println("Missle Loc: "+validX/gp.tileSize+", "+validY/gp.tileSize);
@@ -211,9 +211,9 @@ public class MON_Boss extends Character {
         actionLockCounter = 0;
 
         onPath=true;
-        if(gp.player.direction.equals("up-right") || gp.player.direction.equals("down-right")) {
+        if (gp.player.direction.equals("up-right") || gp.player.direction.equals("down-right")) {
             direction = "right";
-        } else if(gp.player.direction.equals("up-left") || gp.player.direction.equals("down-left")) {
+        } else if (gp.player.direction.equals("up-left") || gp.player.direction.equals("down-left")) {
             direction = "left";
         } else {
             direction = gp.player.direction;
@@ -221,7 +221,7 @@ public class MON_Boss extends Character {
 
     }
     public void draw(Graphics2D g2) {
-        if(drawRange>10){
+        if (drawRange>10){
         }
         BufferedImage image = null;
         int screenX = worldX - gp.player.worldX + gp.player.screenX;
@@ -267,7 +267,7 @@ public class MON_Boss extends Character {
                     break;
             }
             // Monster HP Bar
-            if(type <= 2 && hpBarOn == true) {
+            if (type <= 2 && hpBarOn == true) {
 
                 double oneScale = (double)gp.tileSize/maxLife;
                 double hpBarValue = oneScale*life;
@@ -279,12 +279,12 @@ public class MON_Boss extends Character {
                 g2.fillRect(screenX, screenY - 15,(int)hpBarValue, 10);
 
                 hpBarCounter++;
-                if(hpBarCounter > 600) {
+                if (hpBarCounter > 600) {
                     hpBarCounter = 0;
                     hpBarOn = false;
                 }
             }
-            if(type==4){
+            if (type==4){
                 drawRange=80;
                 double oneScale = (double)gp.screenWidth/maxLife;
                 double hpBarValue = oneScale*life;
@@ -298,13 +298,13 @@ public class MON_Boss extends Character {
 
             }
 
-            if(invincible == true) {
+            if (invincible == true) {
                 hpBarOn = true;
                 hpBarCounter = 0;
                 //changeAlpha(g2,0.4f);
 
             }
-            if(dying == true) {
+            if (dying == true) {
                 gp.stopMusic();
                 dyingAnimation(g2);
                 gp.eHandler.setBossbattle(false);

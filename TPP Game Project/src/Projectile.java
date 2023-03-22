@@ -19,10 +19,10 @@ public class Projectile extends Character{
 
     public void update() {
 
-        if(user == gp.player) {
+        if (user == gp.player) {
             //System.out.println(direction);
             int monsterIndex = gp.cChecker.checkCharacter(this, gp.monster);
-            if(monsterIndex != 999) {
+            if (monsterIndex != 999) {
                 gp.player.damageMonster(monsterIndex, attack);
                 alive = false;
 
@@ -30,20 +30,20 @@ public class Projectile extends Character{
             //Prevents player from shooting through tiles
             gp.cChecker.checkTile(this);
             //System.out.println(collisionOn);
-            if(collisionOn==true){
+            if (collisionOn==true){
                 alive = false;
                 gp.playSE(1);
             }
             collisionOn = false;        //resets collision
         }
-        if(user != gp.player) {
+        if (user != gp.player) {
             boolean contactPlayer = gp.cChecker.checkPlayer(this);
-            if(gp.player.invincible == false && contactPlayer == true){
+            if (gp.player.invincible == false && contactPlayer == true){
                 damagePlayer(attack);
                 alive = false;
             }
             life--;
-            if(life <= 0) {
+            if (life <= 0) {
                 alive = false;
             }
         }
@@ -72,11 +72,11 @@ public class Projectile extends Character{
 
 
         spriteCounter++;
-        if(spriteCounter > 12) {
-            if(spriteNum == 1) {
+        if (spriteCounter > 12) {
+            if (spriteNum == 1) {
                 spriteNum = 2;
             }
-            else if(spriteNum == 2) {
+            else if (spriteNum == 2) {
                 spriteNum = 1;
             }
             spriteCounter = 0;

@@ -36,7 +36,7 @@ public class MON_Boss_Super extends Character {
     }
     public void getImage() {
         int i = 5;
-        if(reviving == true) {
+        if (reviving == true) {
             up1 = setup("TPP Game Project/res/monster/magnezone_down_2", gp.tileSize * i, gp.tileSize * i);
             up2 = setup("TPP Game Project/res/monster/magnezone_down_2", gp.tileSize * i, gp.tileSize * i);
             down1 = setup("TPP Game Project/res/monster/magnezone_down_2", gp.tileSize * i, gp.tileSize * i);
@@ -64,50 +64,50 @@ public class MON_Boss_Super extends Character {
         int xDistance = Math.abs(worldX - gp.player.worldX);
         int yDistance = Math.abs(worldY - gp.player.worldY);
         int tileDistance = (xDistance + yDistance)/gp.tileSize;
-        if(life==maxLife){
+        if (life==maxLife){
             reviving=false;
         }
-        if(onPath == false && tileDistance < 5){
+        if (onPath == false && tileDistance < 5){
             int i = new Random().nextInt(100)+1;
-            if(i>50){
+            if (i>50){
                 onPath= true;
             }
 
         }
-        if(onPath==true&&tileDistance>20){
+        if (onPath==true&&tileDistance>20){
             onPath = false;
         }
     }
     public void setAction() {
 
-        if(life == 0&&reviving!=true) {
+        if (life == 0&&reviving!=true) {
             gp.stopMusic();
             gp.playMusic(0);
             BossDead = true;
             gp.eHandler.setBossbattle(false);
 
         }
-        if(getTileDistance(gp.player) < 100) {
+        if (getTileDistance(gp.player) < 100) {
             moveTowardPlayer(60);
-            if(shotAvailableCounter1%25==0) {
+            if (shotAvailableCounter1%25==0) {
 
                 tempPlayerX=gp.player.worldX;
                 tempPlayerY=gp.player.worldY;
-                if(shotAvailableCounter%15==0) {
+                if (shotAvailableCounter%15==0) {
                     OBJ_Boss_Projectile proj = new OBJ_Boss_Projectile(gp, this);
                     proj.set(getCenterX(), getCenterY(), tempPlayerX, tempPlayerY, "polar", true, this);
                     gp.projectileList.add(proj);
                 }
             }
-            if(shotAvailableCounter1==50){
+            if (shotAvailableCounter1==50){
 
             }
-            if(shotAvailableCounter1 == 100){
+            if (shotAvailableCounter1 == 100){
                 shotAvailableCounter1 = 0;
 
 
             }
-            if(shotAvailableCounter1 < 100) {
+            if (shotAvailableCounter1 < 100) {
                 shotAvailableCounter1++;
             }
 
@@ -154,9 +154,9 @@ public class MON_Boss_Super extends Character {
         actionLockCounter = 0;
 
         onPath=true;
-        if(gp.player.direction.equals("up-right") || gp.player.direction.equals("down-right")) {
+        if (gp.player.direction.equals("up-right") || gp.player.direction.equals("down-right")) {
             direction = "right";
-        } else if(gp.player.direction.equals("up-left") || gp.player.direction.equals("down-left")) {
+        } else if (gp.player.direction.equals("up-left") || gp.player.direction.equals("down-left")) {
             direction = "left";
         } else {
             direction = gp.player.direction;
@@ -166,7 +166,7 @@ public class MON_Boss_Super extends Character {
     public void draw(Graphics2D g2) {
 
 
-        if(drawRange>10){
+        if (drawRange>10){
         }
         BufferedImage image = null;
         int screenX = worldX - gp.player.worldX + gp.player.screenX;
@@ -212,7 +212,7 @@ public class MON_Boss_Super extends Character {
                     break;
             }
             // Monster HP Bar
-            if(type <= 2 && hpBarOn == true) {
+            if (type <= 2 && hpBarOn == true) {
 
                 double oneScale = (double)gp.tileSize/maxLife;
                 double hpBarValue = oneScale*life;
@@ -224,12 +224,12 @@ public class MON_Boss_Super extends Character {
                 g2.fillRect(screenX, screenY - 15,(int)hpBarValue, 10);
 
                 hpBarCounter++;
-                if(hpBarCounter > 600) {
+                if (hpBarCounter > 600) {
                     hpBarCounter = 0;
                     hpBarOn = false;
                 }
             }
-            if(type==3){
+            if (type==3){
                 drawRange=80;
                 double oneScale = (double)gp.screenWidth/maxLife;
                 double hpBarValue = oneScale*life;
@@ -243,13 +243,13 @@ public class MON_Boss_Super extends Character {
 
             }
 
-            if(invincible == true) {
+            if (invincible == true) {
                 hpBarOn = true;
                 hpBarCounter = 0;
                 //changeAlpha(g2,0.4f);
 
             }
-            if(dying == true) {
+            if (dying == true) {
                 gp.stopMusic();
                 gp.playMusic(0);//suspence music
                 dyingAnimation(g2);

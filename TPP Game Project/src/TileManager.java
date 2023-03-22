@@ -63,7 +63,7 @@ public class TileManager {
                     col++;
 
                 }
-                if(col==gp.maxWorldCol){
+                if (col==gp.maxWorldCol){
                     col=0;
                     row++;
                 }
@@ -99,13 +99,13 @@ public class TileManager {
                 }
                 worldCol++;
 
-                if(worldCol == gp.maxWorldCol){
+                if (worldCol == gp.maxWorldCol){
                     worldCol = 0;
                     worldRow++;
                 }
 
             }
-            if(drawPath == true){
+            if (drawPath == true){
                 graphics2.setColor(new Color(255, 0, 0, 70));
 
                 for (int i = 0; i < gp.pFinder.pathList.size(); i++) {

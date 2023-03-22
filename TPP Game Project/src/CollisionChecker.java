@@ -106,7 +106,7 @@ public class CollisionChecker { //test
         int index = 999;
 
         for (int i = 0; i < gp.obj.length; i++) {
-            if(gp.obj[gp.currentMap][i]!= null){
+            if (gp.obj[gp.currentMap][i]!= null){
                 //get character's solid area position
                     chara.solidArea.x = chara.worldX+ chara.solidArea.x;
                     chara.solidArea.y = chara.worldY+ chara.solidArea.y;
@@ -116,7 +116,7 @@ public class CollisionChecker { //test
                 gp.obj[gp.currentMap][i].solidArea.x = gp.obj[gp.currentMap][i].worldX +gp.obj[gp.currentMap][i].solidArea.x;
                 gp.obj[gp.currentMap][i].solidArea.y = gp.obj[gp.currentMap][i].worldY +gp.obj[gp.currentMap][i].solidArea.y;
 
-                switch(chara.direction){
+                switch (chara.direction) {
                     case"up":
                         chara.solidArea.y -=chara.speed;
                         break;
@@ -146,11 +146,11 @@ public class CollisionChecker { //test
                         chara.solidArea.x +=chara.speed;
                         break;
                 }
-                if(chara.solidArea.intersects(gp.obj[gp.currentMap][i].solidArea)){
+                if (chara.solidArea.intersects(gp.obj[gp.currentMap][i].solidArea)){
                     if (gp.obj[gp.currentMap][i].collision ==true){
                         chara.collisionOn = true;
                     }
-                    if(player == true){
+                    if (player == true){
                         index = i;
                     }
                 }
@@ -170,7 +170,7 @@ public class CollisionChecker { //test
         int index = 999;
 
         for (int i = 0; i < target[1].length; i++) {
-            if(target[gp.currentMap][i]!= null){
+            if (target[gp.currentMap][i]!= null){
                 //get character's solid area position
                 chara.solidArea.x = chara.worldX+ chara.solidArea.x;
                 chara.solidArea.y = chara.worldY+ chara.solidArea.y;
@@ -181,7 +181,7 @@ public class CollisionChecker { //test
                 target[gp.currentMap][i].solidArea.y = target[gp.currentMap][i].worldY +target[gp.currentMap][i].solidArea.y;
 
 
-                switch(chara.direction){
+                switch (chara.direction) {
                     case"up":
                         chara.solidArea.y -=chara.speed;
                         break;
@@ -211,8 +211,8 @@ public class CollisionChecker { //test
                         chara.solidArea.x +=chara.speed;
                         break;
                 }
-                if(chara.solidArea.intersects(target[gp.currentMap][i].solidArea)) {
-                    if(target[gp.currentMap][i] != chara) {
+                if (chara.solidArea.intersects(target[gp.currentMap][i].solidArea)) {
+                    if (target[gp.currentMap][i] != chara) {
                         chara.collisionOn = true;
                         index = i;
                     }
@@ -241,7 +241,7 @@ public class CollisionChecker { //test
         gp.player.solidArea.x = gp.player.worldX + gp.player.solidArea.x;
         gp.player.solidArea.y = gp.player.worldY + gp.player.solidArea.y;
 
-        switch(chara.direction){
+        switch (chara.direction) {
             case"up":
                 chara.solidArea.y -=chara.speed;
                 break;
@@ -272,7 +272,7 @@ public class CollisionChecker { //test
                 break;
         }
 
-        if(chara.solidArea.intersects(gp.player.solidArea)){//checks if rectangle is intersecting anothter
+        if (chara.solidArea.intersects(gp.player.solidArea)){//checks if rectangle is intersecting another
             chara.collisionOn = true;
             contactPlayer = true;
         }

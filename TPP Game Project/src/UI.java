@@ -43,24 +43,24 @@ public class UI {
         g2.setColor(Color.white);
 
         // PLAY STATE
-        if(gp.gameState == gp.playState) {
+        if (gp.gameState == gp.playState) {
             drawPlayerLife();
         }
         // PAUSE STATE
-        if(gp.gameState == gp.pauseState) {
+        if (gp.gameState == gp.pauseState) {
             drawPauseScreen();
             drawPlayerLife();
         }
         // DIAOLOGUE STATE
-        if(gp.gameState == gp.dialogueState) {
+        if (gp.gameState == gp.dialogueState) {
             drawDialogueScreen();
         }
         //CHARACTER STATE
-        if(gp.gameState==gp.characterState){
+        if (gp.gameState==gp.characterState){
             drawCharacterScreen();
         }
         // GAME OVER STATE
-        if(gp.gameState == gp.gameOverState) {
+        if (gp.gameState == gp.gameOverState) {
             drawGameOverScreen();
         }
 
@@ -107,7 +107,7 @@ public class UI {
 //
 //            // TIME
             playTime +=(double)1/60; // 1/60 because called 60 times per second (60FPS).
-            if(playTime > 60.0) {
+            if (playTime > 60.0) {
                 min++;
                 playTime -= 60;
             }
@@ -127,7 +127,7 @@ public class UI {
                 }
             }
             //TITLE STATE
-            if(gp.gameState == gp.titleState){
+            if (gp.gameState == gp.titleState){
                 drawTitleScreen();
             }
         }
@@ -151,7 +151,7 @@ public class UI {
         while(i< gp.player.life){
             g2.drawImage(heart_half, x, y, null);
             i++;
-            if(i<gp.player.life){
+            if (i<gp.player.life){
                 g2.drawImage(heart_full,x,y,null);
 
                 }
@@ -189,14 +189,14 @@ public class UI {
         x = getXforCenteredText(text);
         y+=gp.tileSize*4;
         g2.drawString(text,x,y);
-        if(commandNum == 0){
+        if (commandNum == 0){
             g2.drawString(">",x-gp.tileSize,y);
         }
         text = "LOAD GAME";
         x = getXforCenteredText(text);
         y+=gp.tileSize;
         g2.drawString(text,x,y);
-        if(commandNum == 1){
+        if (commandNum == 1){
             g2.drawString(">",x-gp.tileSize,y);
         }
 
@@ -204,7 +204,7 @@ public class UI {
         x = getXforCenteredText(text);
         y+=gp.tileSize;
         g2.drawString(text,x,y);
-        if(commandNum == 2){
+        if (commandNum == 2){
             g2.drawString(">",x-gp.tileSize,y);
         }
     }
@@ -265,7 +265,7 @@ public class UI {
         x = getXforCenteredText(text);
         y += gp.tileSize * 4;
         g2.drawString(text, x, y);
-        if(commandNum == 0) {
+        if (commandNum == 0) {
             g2.drawString(">", x-40, y);
         }
 
@@ -274,7 +274,7 @@ public class UI {
         x = getXforCenteredText(text);
         y += 55;
         g2.drawString(text, x, y);
-        if(commandNum == 1) {
+        if (commandNum == 1) {
             g2.drawString(">", x-40, y);
         }
     }

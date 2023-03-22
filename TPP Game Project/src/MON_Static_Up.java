@@ -36,7 +36,7 @@ public class MON_Static_Up extends Character {
     public void setAction() {
 
         int i = new Random().nextInt(100)+1;
-        if(i>90&&projectile.alive==false&&shotAvailableCounter == 45){
+        if (i>90&&projectile.alive==false&&shotAvailableCounter == 45){
             projectile.set(worldX, worldY, direction, true, this);
             gp.projectileList.add(projectile);
             shotAvailableCounter=0;//d
@@ -58,15 +58,15 @@ public class MON_Static_Up extends Character {
             }
             spriteCounter = 0;
         }
-        if(invincible == true) {
+        if (invincible == true) {
 
             invincibleCounter++;
-            if(invincibleCounter > 40) {
+            if (invincibleCounter > 40) {
                 invincible = false;
                 invincibleCounter = 0;
             }
         }
-        if(shotAvailableCounter < 45) {
+        if (shotAvailableCounter < 45) {
             shotAvailableCounter++;
         }
     }

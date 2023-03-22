@@ -101,23 +101,23 @@ public class Player extends Character{
      */
     public void update(){
         //System.out.println(attacking);
-        if(attacking == true){
+        if (attacking == true){
             attacking();
             //System.out.println("attacking is true");
-        } else if(keyH.upPressed==true||keyH.downPressed==true||
+        } else if (keyH.upPressed==true||keyH.downPressed==true||
                 keyH.leftPressed==true||keyH.rightPressed==true|| keyH.enterPressed == true) { //Checks all player input to see if moving. (so player animation doesn't move when player is still).
             //System.out.println("attacking is false");
             //Subtracts speed from x & y coordinates and sets direction for sprite.
-            if(keyH.upPressed && keyH.leftPressed) {
+            if (keyH.upPressed && keyH.leftPressed) {
                 direction = "up-left";
 
-            } else if(keyH.upPressed && keyH.rightPressed) {
+            } else if (keyH.upPressed && keyH.rightPressed) {
                 direction = "up-right";
 
-            } else if(keyH.downPressed && keyH.leftPressed) {
+            } else if (keyH.downPressed && keyH.leftPressed) {
                 direction = "down-left";
 
-            } else if(keyH.downPressed && keyH.rightPressed) {
+            } else if (keyH.downPressed && keyH.rightPressed) {
                 direction = "down-right";
 
             } else if (keyH.upPressed) {
@@ -155,7 +155,7 @@ public class Player extends Character{
 
 
             //if collision is false player can move
-            if(collisionOn == false && keyH.enterPressed == false){
+            if (collisionOn == false && keyH.enterPressed == false){
 
                 switch (direction){
                     case "up": worldY -= speed;
@@ -180,7 +180,7 @@ public class Player extends Character{
                 }
             }
 
-//            if(keyH.enterPressed == true && attackCanceled== false){
+//            if (keyH.enterPressed == true && attackCanceled== false){
 //                gp.playSE(7);
 //                attacking = true;
 //                spriteCounter = 0;
@@ -204,7 +204,7 @@ public class Player extends Character{
             }
         }
 
-        if( gp.mouseIn.mousePress == true && shotAvailableCounter == 10) {
+        if ( gp.mouseIn.mousePress == true && shotAvailableCounter == 10) {
             // SET DEFAULT COORDINATES, DIRECTION AND USER
             OBJ_Player_Projectile proj = new OBJ_Player_Projectile(gp,this);
             gp.player.speed = slowSpeed;
@@ -217,27 +217,27 @@ public class Player extends Character{
 
             gp.playSE(8);
             mouseIn.mousePress=false;
-        }else if(slowCounter == 15){
+        }else if (slowCounter == 15){
             speed = currentSpeed;
             slowCounter = 0;
         }
 
-        if(invincible == true) {
+        if (invincible == true) {
 
             invincibleCounter++;
-            if(invincibleCounter > 60) {
+            if (invincibleCounter > 60) {
                 invincible = false;
                 invincibleCounter = 0;
             }
         }
-        if(shotAvailableCounter < 10) {
+        if (shotAvailableCounter < 10) {
             shotAvailableCounter++;
         }
-        if(slowCounter < 15) {
+        if (slowCounter < 15) {
             slowCounter++;
         }
-        if(keyH.godModeOn == false) {
-            if(life <= 0) {
+        if (keyH.godModeOn == false) {
+            if (life <= 0) {
                 gp.gameState = gp.gameOverState;
                 gp.stopMusic();
                 gp.playMusic(0);
@@ -250,7 +250,7 @@ public class Player extends Character{
 
     }
     public void pickupObject(int i){
-        if(i !=999){
+        if (i !=999){
 
             String objectName= gp.obj[gp.currentMap][i].name;
             switch(objectName){
@@ -261,7 +261,7 @@ public class Player extends Character{
                     gp.ui.showMessage("You got a key!");
                     break;
                 case"Door":
-                    if(hasKey>0){
+                    if (hasKey>0){
                         gp.playSE(4);
                         gp.obj[gp.currentMap][i] = null;
                         hasKey--;
@@ -287,8 +287,8 @@ public class Player extends Character{
     }
     public void interactNPC(int i) {
 
-        if(gp.keyH.enterPressed==true){
-            if(i != 999) {
+        if (gp.keyH.enterPressed==true){
+            if (i != 999) {
                 attackCanceled = true;
                 gp.gameState = gp.dialogueState;
                 gp.npc[gp.currentMap][i].speak();
@@ -319,20 +319,20 @@ public class Player extends Character{
     }
 
     public void damageMonster(int i, int attack){
-        if(i !=999){
+        if (i !=999){
 
-            if(gp.monster[gp.currentMap][i].invincible == false  || gp.monster[gp.currentMap][i].invincible == true){ //temp fix
+            if (gp.monster[gp.currentMap][i].invincible == false  || gp.monster[gp.currentMap][i].invincible == true){ //temp fix
                 gp.playSE(5);
 
                 int damage = attack - gp.monster[gp.currentMap][i].defense;
-                if(damage < 0){
+                if (damage < 0){
                     damage = 0;
                 }
 
                 gp.monster[gp.currentMap][i].life-=damage;
                 gp.monster[gp.currentMap][i].invincible = true;
                 gp.monster[gp.currentMap][i].damageReaction();
-                if(gp.monster[gp.currentMap][i].life<=0 ){
+                if (gp.monster[gp.currentMap][i].life<=0 ){
                     gp.monster[gp.currentMap][i].dying = true;
                 }
             }
@@ -409,7 +409,7 @@ public class Player extends Character{
 
                 break;
             case "left", "up-left", "down-left":
-                if(attacking == false) {
+                if (attacking == false) {
                     if (spriteNum == 1) {
                         image = left1;
                     }
@@ -429,7 +429,7 @@ public class Player extends Character{
                 break;
         }
 
-        if(invincible == true) {
+        if (invincible == true) {
             graphics2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
         }
         graphics2.drawImage(image, tempScreenX, tempScreenY, null);

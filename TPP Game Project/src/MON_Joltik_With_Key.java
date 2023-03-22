@@ -7,7 +7,7 @@ public class MON_Joltik_With_Key extends Character {
 
         type = 2;
         name = "Joltik";
-        speed = 10;
+        speed = 8;
         maxLife = 15;
         life = maxLife;
         attack = 5;
@@ -59,12 +59,12 @@ public class MON_Joltik_With_Key extends Character {
     }
     public void setAction() {
         if (onPath == true) {
-            if(updateCounter > 30) {
+            if (updateCounter > 30) {
                 speed = 10;
                 int goalCol = (gp.player.worldX + gp.player.solidArea.x) / gp.tileSize;
                 int goalRow = (gp.player.worldY + gp.player.solidArea.y) / gp.tileSize;
                 searchPath(goalCol, goalRow);
-            } if(updateCounter == 60) {
+            } if (updateCounter == 60) {
                 updateCounter = 0;
                 speed = 0;
             }
@@ -98,9 +98,9 @@ public class MON_Joltik_With_Key extends Character {
         actionLockCounter = 0;
 
         onPath=true;
-        if(gp.player.direction.equals("up-right") || gp.player.direction.equals("down-right")) {
+        if (gp.player.direction.equals("up-right") || gp.player.direction.equals("down-right")) {
             direction = "right";
-        } else if(gp.player.direction.equals("up-left") || gp.player.direction.equals("down-left")) {
+        } else if (gp.player.direction.equals("up-left") || gp.player.direction.equals("down-left")) {
             direction = "left";
         } else {
             direction = gp.player.direction;
@@ -115,7 +115,7 @@ public class MON_Joltik_With_Key extends Character {
 
 
         gp.pFinder.setNodes(startCol,startRow,goalCol, goalRow);
-        if(gp.pFinder.search()==true){// IF ITS FOUND A PATH
+        if (gp.pFinder.search()==true){// IF ITS FOUND A PATH
 
 
             //NEXT WORLDX & WORLDY
@@ -128,28 +128,28 @@ public class MON_Joltik_With_Key extends Character {
             int enBottomY = worldY + solidArea.y + solidArea.height;
 
 
-            if(enTopY > nextY && enLeftX >= nextX && enRightX < nextX + gp.tileSize){
+            if (enTopY > nextY && enLeftX >= nextX && enRightX < nextX + gp.tileSize){
                 direction = "up";
 
-            }  if(enTopY < nextY && enLeftX >= nextX && enRightX < nextX + gp.tileSize) {
+            }  if (enTopY < nextY && enLeftX >= nextX && enRightX < nextX + gp.tileSize) {
                 direction = "down";
-            }  if(enTopY >= nextY && enBottomY < nextY + gp.tileSize){
+            }  if (enTopY >= nextY && enBottomY < nextY + gp.tileSize){
                 //left or right
                 if (enLeftX > nextX) {
                     direction = "left";
 
                 }
-                if(enLeftX < nextX){
+                if (enLeftX < nextX){
                     direction = "right";
                 }
             }
-            else if(enTopY > nextY && enLeftX > nextX){
+            else if (enTopY > nextY && enLeftX > nextX){
                 //up or left
 
                 direction = "up";
                 checkCollision();
 
-                if(collisionOn == true){
+                if (collisionOn == true){
                     direction = "left";
                 }
             } else if (enTopY > nextY && enLeftX < nextX) {
@@ -157,7 +157,7 @@ public class MON_Joltik_With_Key extends Character {
                 direction = "up";
                 checkCollision();
 
-                if(collisionOn==true){
+                if (collisionOn==true){
                     direction = "right";
                 }
 
@@ -166,15 +166,15 @@ public class MON_Joltik_With_Key extends Character {
                 //down or left
                 direction= "down";
                 checkCollision();
-                if(collisionOn == true){
+                if (collisionOn == true){
 
                     direction = "left";
                 }
-            } else if(enTopY < nextY && enLeftX < nextX){
+            } else if (enTopY < nextY && enLeftX < nextX){
                 //down or right
                 direction = "down";
                 checkCollision();
-                if(collisionOn == true){
+                if (collisionOn == true){
                     direction = "right";
                 }
             }
@@ -182,7 +182,7 @@ public class MON_Joltik_With_Key extends Character {
             //if reaches goal stops search
 //            int nextCol = gp.pFinder.pathList.get(0).col;
 //            int nextRow = gp.pFinder.pathList.get(0).row;
-//            if(nextCol == goalCol && nextRow == goalRow){
+//            if (nextCol == goalCol && nextRow == goalRow){
 //                System.out.println("LEZ FUCKING GOOOOO");
 //                onPath = false;
 //            }

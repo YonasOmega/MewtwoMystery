@@ -114,7 +114,7 @@ public class Character {
     public void setAction() {}
     public void damageReaction() {};
     public void speak() {
-        if(dialogues[dialogueIndex] == null) {
+        if (dialogues[dialogueIndex] == null) {
             dialogueIndex = 0;
         }
         gp.ui.currentDialogue = dialogues[dialogueIndex];
@@ -145,7 +145,7 @@ public class Character {
         gp.cChecker.checkCharacter(this, gp.monster);
         boolean contactPlayer = gp.cChecker.checkPlayer(this);
 
-        if(this.type <=2 && contactPlayer == true) {
+        if (this.type <=2 && contactPlayer == true) {
             damagePlayer(attack);
         }
     }
@@ -186,21 +186,21 @@ public class Character {
             }
             spriteCounter = 0;
         }
-        if(invincible == true) {
+        if (invincible == true) {
 
             invincibleCounter++;
-            if(invincibleCounter > 40) {
+            if (invincibleCounter > 40) {
                 invincible = false;
                 invincibleCounter = 0;
             }
         }
-        if(shotAvailableCounter < 45) {
+        if (shotAvailableCounter < 45) {
             shotAvailableCounter++;
         }
     }
     public void checkShootOrNot(int rate, int shotInterval) {
         int i = new Random().nextInt(rate);
-        if(i == 0 && projectile.alive == false && shotAvailableCounter == shotInterval){
+        if (i == 0 && projectile.alive == false && shotAvailableCounter == shotInterval){
             OBJ_Player_Projectile proj = new OBJ_Player_Projectile(gp,this);
             proj.set(this.worldX, this.worldY, gp.player.worldX, gp.player.worldY, "polar", true, this);
             gp.projectileList.add(proj);
@@ -208,17 +208,17 @@ public class Character {
         }
     }
     public void checkStartChasingOrNot(Character target, int distance, int rate) {
-        if(getTileDistance(target) < distance) {
+        if (getTileDistance(target) < distance) {
             int i = new Random().nextInt(rate);
-            if(i == 0) {
+            if (i == 0) {
                 onPath = true;
             }
         }
     }
     public void checkStopChasingOrNot(Character target, int distance, int rate) {
-        if(getTileDistance(target) > distance) {
+        if (getTileDistance(target) > distance) {
             int i = new Random().nextInt(rate);
-            if(i == 0) {
+            if (i == 0) {
                 onPath = false;
             }
         }
@@ -226,7 +226,7 @@ public class Character {
     public void getRandomDirection() {
         actionLockCounter++;
 
-        if(actionLockCounter == 120) {
+        if (actionLockCounter == 120) {
             Random random = new Random();
             int i = random.nextInt(100)+1;
 
@@ -249,10 +249,10 @@ public class Character {
     public void attacking(){
         spriteCounter++;
 
-        if(spriteCounter <=5){//for speed of animation
+        if (spriteCounter <=5){//for speed of animation
             spriteNum =1;
 
-        }if(spriteCounter>5 &&spriteCounter<=25){
+        }if (spriteCounter>5 &&spriteCounter<=25){
             spriteNum=2;
 
             //SAVE CURRENT X, Y, AND SOLID AREA
@@ -272,8 +272,8 @@ public class Character {
             solidArea.width = attackArea.width;
             solidArea.height = attackArea.height;
 
-            if(type <= 2) {
-                if(gp.cChecker.checkPlayer(this) == true) {
+            if (type <= 2) {
+                if (gp.cChecker.checkPlayer(this) == true) {
                     damagePlayer(attack);
                 }
             } else { // Player
@@ -289,7 +289,7 @@ public class Character {
 
 
         }
-        if(spriteCounter>25){
+        if (spriteCounter>25){
             spriteNum=1;
             spriteCounter =0;
             attacking=false;
@@ -298,17 +298,17 @@ public class Character {
     public void moveTowardPlayer(int interval) {
         actionLockCounter++;
 
-        if(actionLockCounter > interval) {
-            if(getXdistance(gp.player) > getYdistance(gp.player)) {
-                if(gp.player.getCenterX() < getCenterX()) {
+        if (actionLockCounter > interval) {
+            if (getXdistance(gp.player) > getYdistance(gp.player)) {
+                if (gp.player.getCenterX() < getCenterX()) {
                     direction = "left";
                 }
                 else {
                     direction = "right";
                 }
             }
-            else if(getXdistance(gp.player) < getYdistance(gp.player)) {
-                if(gp.player.getCenterY() < getCenterY()) {
+            else if (getXdistance(gp.player) < getYdistance(gp.player)) {
+                if (gp.player.getCenterY() < getCenterY()) {
                     direction = "up";
                 }
                 else {
@@ -319,11 +319,11 @@ public class Character {
         }
     }
     public void damagePlayer(int attack){
-        if(gp.player.invincible == false) {
+        if (gp.player.invincible == false) {
             // we can give damage
             gp.playSE(6);
             int damage = attack - gp.player.defense;
-            if(damage < 0){
+            if (damage < 0){
                 damage = 0;
             }
             gp.player.life -= damage;
@@ -332,7 +332,7 @@ public class Character {
 
     }
     public void draw(Graphics2D g2) {
-        if(drawRange>10){
+        if (drawRange>10){
         }
         BufferedImage image = null;
         int screenX = worldX - gp.player.worldX + gp.player.screenX;
@@ -378,7 +378,7 @@ public class Character {
                     break;
             }
             // Monster HP Bar
-            if(type <= 2 && hpBarOn == true) {
+            if (type <= 2 && hpBarOn == true) {
 
                 double oneScale = (double)gp.tileSize/maxLife;
                 double hpBarValue = oneScale*life;
@@ -390,12 +390,12 @@ public class Character {
                 g2.fillRect(screenX, screenY - 15,(int)hpBarValue, 10);
 
                 hpBarCounter++;
-                if(hpBarCounter > 600) {
+                if (hpBarCounter > 600) {
                     hpBarCounter = 0;
                     hpBarOn = false;
                 }
             }
-            if(type==3){
+            if (type==3){
                 drawRange=80;
                 double oneScale = (double)gp.screenWidth/maxLife;
                 double hpBarValue = oneScale*life;
@@ -409,13 +409,13 @@ public class Character {
 
             }
 
-            if(invincible == true) {
+            if (invincible == true) {
                 hpBarOn = true;
                 hpBarCounter = 0;
                 //changeAlpha(g2,0.4f);
 
             }
-            if(dying == true||type==3&&reviving==true) {
+            if (dying == true||type==3&&reviving==true) {
 
                 dyingAnimation(g2);
             }
@@ -430,9 +430,9 @@ public class Character {
         int i = 5;
 
 
-        if(dyingCounter <= 5) {
+        if (dyingCounter <= 5) {
             changeAlpha(g2, 0f);
-            if(reviving==true&&type==3) {
+            if (reviving==true&&type==3) {
                 gp.stopMusic();
                 gp.playMusic(7);
                 i=20;
@@ -440,51 +440,51 @@ public class Character {
             }
 
         }
-        if(dyingCounter > i && dyingCounter <= i*2) {
+        if (dyingCounter > i && dyingCounter <= i*2) {
             changeAlpha(g2, 1f);
-            if(reviving==true&&type==3) {
+            if (reviving==true&&type==3) {
                 life += (double) maxLife / 10;
             }
 
         }
-        if(dyingCounter > i*2 && dyingCounter <= i*3) {
+        if (dyingCounter > i*2 && dyingCounter <= i*3) {
             changeAlpha(g2, 0f);
-            if(reviving==true&&type==3) {
+            if (reviving==true&&type==3) {
                 life += (double) maxLife / 10;
             }
         }
-        if(dyingCounter > i*3 && dyingCounter <= i*4) {
+        if (dyingCounter > i*3 && dyingCounter <= i*4) {
             changeAlpha(g2, 1f);
-            if(reviving==true&&type==3) {
+            if (reviving==true&&type==3) {
                 life += (double) maxLife / 10;
             }
         }
-        if(dyingCounter > i*4 && dyingCounter <= i*5) {
+        if (dyingCounter > i*4 && dyingCounter <= i*5) {
             changeAlpha(g2, 0f);
-            if(reviving==true&&type==3) {
+            if (reviving==true&&type==3) {
                 life += (double) maxLife / 10;
             }
         }
-        if(dyingCounter > i*5 && dyingCounter <= i*6) {
+        if (dyingCounter > i*5 && dyingCounter <= i*6) {
             changeAlpha(g2, 1f);
-            if(reviving==true&&type==3) {
+            if (reviving==true&&type==3) {
                 life += (double) maxLife / 10;
             }
         }
-        if(dyingCounter > i*6 && dyingCounter <= i*7) {
+        if (dyingCounter > i*6 && dyingCounter <= i*7) {
             changeAlpha(g2, 0f);
-            if(reviving==true&&type==3) {
+            if (reviving==true&&type==3) {
                 life += (double) maxLife / 10;
             }
         }
-        if(dyingCounter > i*7 && dyingCounter <= i*8) {
+        if (dyingCounter > i*7 && dyingCounter <= i*8) {
             changeAlpha(g2, 1f);
-            if(reviving==true&&type==3) {
+            if (reviving==true&&type==3) {
                 life += (double) maxLife / 10;
             }
         }
-        if(dyingCounter > i*8) {
-            if(reviving==true&&type==3){
+        if (dyingCounter > i*8) {
+            if (reviving==true&&type==3){
                 dying=false;
                 alive=true;
                 life=maxLife;
@@ -542,7 +542,7 @@ public class Character {
 
 
         gp.pFinder.setNodes(startCol,startRow,goalCol, goalRow);
-        if(gp.pFinder.search()==true){// IF ITS FOUND A PATH
+        if (gp.pFinder.search()==true){// IF ITS FOUND A PATH
 
 
             //NEXT WORLDX & WORLDY
@@ -555,27 +555,27 @@ public class Character {
             int enBottomY = worldY + solidArea.y + solidArea.height;
 
 
-            if(enTopY > nextY && enLeftX >= nextX && enRightX < nextX + gp.tileSize){
+            if (enTopY > nextY && enLeftX >= nextX && enRightX < nextX + gp.tileSize){
                 direction = "up";
 
-            } else if(enTopY < nextY && enLeftX >= nextX && enRightX < nextX + gp.tileSize){
+            } else if (enTopY < nextY && enLeftX >= nextX && enRightX < nextX + gp.tileSize){
                 direction = "down";
-            } else if(enTopY >= nextY && enBottomY < nextY + gp.tileSize){
+            } else if (enTopY >= nextY && enBottomY < nextY + gp.tileSize){
                 //left or right
                 if (enLeftX > nextX) {
                     direction = "left";
 
                 }
-                if(enLeftX < nextX){
+                if (enLeftX < nextX){
                     direction = "right";
                 }
             }
-            else if(enTopY > nextY && enLeftX > nextX){
+            else if (enTopY > nextY && enLeftX > nextX){
                 //up or left
                 direction = "up";
                 checkCollision();
 
-                if(collisionOn == true){
+                if (collisionOn == true){
                     direction = "left";
                 }
             } else if (enTopY > nextY && enLeftX < nextX) {
@@ -583,7 +583,7 @@ public class Character {
                 direction = "up";
                 checkCollision();
 
-                if(collisionOn==true){
+                if (collisionOn==true){
                     direction = "right";
                 }
 
@@ -592,26 +592,18 @@ public class Character {
                 //down or left
                 direction= "down";
                 checkCollision();
-                if(collisionOn == true){
+                if (collisionOn == true){
 
                     direction = "left";
                 }
-            } else if(enTopY < nextY && enLeftX < nextX){
+            } else if (enTopY < nextY && enLeftX < nextX){
                 //down or right
                 direction = "down";
                 checkCollision();
-                if(collisionOn == true){
+                if (collisionOn == true){
                     direction = "right";
                 }
             }
-
-            //if reaches goal stops search
-//            int nextCol = gp.pFinder.pathList.get(0).col;
-//            int nextRow = gp.pFinder.pathList.get(0).row;
-//            if(nextCol == goalCol && nextRow == goalRow){
-//                System.out.println("LEZ FUCKING GOOOOO");
-//                onPath = false;
-//            }
         }
 
     }

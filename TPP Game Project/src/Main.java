@@ -14,7 +14,7 @@ public class Main {
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  //Stops Program when Exit button is pressed
 
-        window.setResizable(false);                             //Resie: currently Unavailable
+        window.setResizable(false);                             //Resize: currently Unavailable
 
         window.setTitle("2D Adventure");                        //Title on window border
 

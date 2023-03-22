@@ -150,13 +150,13 @@ public class PathFinder {
 
 
                     //if there is no node in the open list, end the loop
-                    if(openList.size() == 0){
+                    if (openList.size() == 0){
                         break;
                 }
-                    //after the koop openlist[bestNdoeIndex] is the next step( = currentNode)
+                    //after the loop openlist[bestNodeIndex] is the next step( = currentNode)
                     currentNode = openList.get(bestNodeIndex);
 
-                    if(currentNode == goalNode){
+                    if (currentNode == goalNode){
                         goalReached = true;
                         trackThePath();
                     }
@@ -164,9 +164,8 @@ public class PathFinder {
                 }
                 return goalReached;
             }
-    //XX
             public void openNode(Node node){
-                if(node.open == false && node.checked == false && node.solid == false){
+                if (node.open == false && node.checked == false && node.solid == false){
                     node.open = true;
                     node.parent = currentNode;
                     openList.add(node);

@@ -31,7 +31,7 @@ public class Map extends TileManager {
                 g2.drawImage(Tiles[tileNum].image, x, y, null);
 
                 col++;
-                if(col == gp.maxWorldCol) {
+                if (col == gp.maxWorldCol) {
                     col = 0;
                     row++;
                 }

@@ -29,7 +29,7 @@ public class NPC_Scientist extends Character{
     }
     public void setAction() {
 
-        if(onPath == true) {
+        if (onPath == true) {
 //            int goalCol = 39;
 //            int goalRow = 7;
             int goalCol = (gp.player.worldX + gp.player.solidArea.x)/gp.tileSize;

@@ -28,7 +28,7 @@ public class EventHandler {
             eventRect[col][row].eventRectDefaultY = eventRect[col][row].y;
 
             col++;
-            if(col == gp.maxWorldCol){
+            if (col == gp.maxWorldCol){
                 col = 0;
                 row++;
 
@@ -37,7 +37,7 @@ public class EventHandler {
 
     }
     public boolean isBossbattlele(){
-        if(bossbattle==true){
+        if (bossbattle==true){
             return true;
         }
         return false;
@@ -53,48 +53,26 @@ public class EventHandler {
         int xDistance = Math.abs(gp.player.worldX - previousEventX);
         int yDistance = Math.abs(gp.player.worldY - previousEventX);
         int distance = Math.max(xDistance, yDistance);
-        if(distance >gp.tileSize){
+        if (distance >gp.tileSize){
             canTouchEvent=true;
         }
-        if(canTouchEvent==true){
-            if(hit(34,7, "left") == true) {
-            //pass coordinates and direction
-            damagePit(34,7,gp.dialogueState);
-             }
-            for(int i = 179; i <= 183; i++) {
-                for(int j = 123; j <= 125; j++) {
-                    if(hit(i,j,"any") == true) {
+        if (canTouchEvent==true){
+            for (int i = 179; i <= 183; i++) {
+                for (int j = 123; j <= 125; j++) {
+                    if (hit(i,j,"any") == true) {
                         healingPool(gp.dialogueState);
                     }
                 }
             }
-//            if(hit(179,123, "any") == true) {
-//                healingPool(gp.dialogueState);
-//            }
-//            if(hit(180,123, "any") == true) {
-//                healingPool(gp.dialogueState);
-//            }
-//            if(hit(181,123, "any") == true) {
-//                healingPool(gp.dialogueState);
-//            }
-//            if(hit(179,124, "any") == true) {
-//                healingPool(gp.dialogueState);
-//            }
-//            if(hit(179,125, "any") == true) {
-//                healingPool(gp.dialogueState);
-//            }
-//            if(hit(179,126, "any") == true) {
-//                healingPool(gp.dialogueState);
-//            }
         }
 
-        if(hit(151, 70, "any") == true) {
+        if (hit(151, 70, "any") == true) {
             teleport(gp.dialogueState,97 ,70);
         }
-        if(hit(98, 70, "any") == true) {
+        if (hit(98, 70, "any") == true) {
             teleport(gp.dialogueState,152,70);
         }
-        if(hit(125, 94, "up") == true) {
+        if (hit(125, 94, "up") == true) {
             bossBattle(gp.dialogueState, 125,42);
         }
 
@@ -107,8 +85,8 @@ public class EventHandler {
         eventRect[col][row].x = col * gp.tileSize + eventRect[col][row].x;
         eventRect[col][row].y = row * gp.tileSize + eventRect[col][row].y;
 
-        if(gp.player.solidArea.intersects(eventRect[col][row]) && eventRect[col][row].eventDone == false) {
-            if(gp.player.direction.contentEquals(reqDirection) || reqDirection.contentEquals("any")) {
+        if (gp.player.solidArea.intersects(eventRect[col][row]) && eventRect[col][row].eventDone == false) {
+            if (gp.player.direction.contentEquals(reqDirection) || reqDirection.contentEquals("any")) {
                 hit = true;
 
                 previousEventX = gp.player.worldX;
@@ -154,7 +132,7 @@ public class EventHandler {
     }
     public void healingPool(int gameState) {
         //System.out.println("heal");
-        if(gp.keyH.enterPressed  == true) {
+        if (gp.keyH.enterPressed  == true) {
             gp.player.attackCanceled = true;
             gp.gameState = gameState;
             gp.ui.currentDialogue = "Health UP!";

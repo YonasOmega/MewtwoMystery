@@ -133,7 +133,7 @@ public class GamePanel extends JPanel implements Runnable {
             try {
                 double remainingTime = nextDrawTime -currentTime;
                 remainingTime=remainingTime/1000000;            //converts nanoseconds to milliseconds.
-                if(remainingTime<0){
+                if (remainingTime<0){
                     remainingTime=0;
                 }
                 Thread.sleep((long) remainingTime);              //"sleeps" until it's time to update
@@ -150,27 +150,27 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void update(){
 
-        if(gameState == playState) {
+        if (gameState == playState) {
 
             player.update();         //Calls player update method.
             for(int i = 0; i < npc[0].length; i++) {
-                if(npc[currentMap][i] != null) {
+                if (npc[currentMap][i] != null) {
                     npc[currentMap][i].update();
                 }
             }
             for(int i = 0; i < monster[0].length; i++) {
-                if(monster[currentMap][i] != null) {
-                    if(monster[currentMap][i].alive == true && monster[currentMap][i].dying == false) {
+                if (monster[currentMap][i] != null) {
+                    if (monster[currentMap][i].alive == true && monster[currentMap][i].dying == false) {
                         monster[currentMap][i].missle();
                         monster[currentMap][i].update();
                     }
-                    if(monster[currentMap][i].alive == false) {
+                    if (monster[currentMap][i].alive == false) {
                        // System.out.println("monster is alive: "+monster[currentMap][i].alive+monster[currentMap][i]);
                         monster[currentMap][i].checkDrop();
                         monster[currentMap][i] = null;
                     }
-                    if( eHandler.isBossbattlele()==true){
-                        if( monster[currentMap][2]==null){
+                    if ( eHandler.isBossbattlele()==true){
+                        if ( monster[currentMap][2]==null){
                             eHandler.setBossbattle(false);
                         }
                     }
@@ -178,17 +178,17 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
             for(int i = 0; i < projectileList.size(); i++) {
-                if(projectileList.get(i) != null) {
-                    if(projectileList.get(i).alive == true) {
+                if (projectileList.get(i) != null) {
+                    if (projectileList.get(i).alive == true) {
                         projectileList.get(i).update();
                     }
-                    if(projectileList.get(i).alive == false) {
+                    if (projectileList.get(i).alive == false) {
                         projectileList.remove(i);
                     }
                 }
             }
         }
-        if(gameState == pauseState) {
+        if (gameState == pauseState) {
             // nothing
         }
     }
@@ -206,17 +206,17 @@ public class GamePanel extends JPanel implements Runnable {
 
         //DEBUG
         long drawStart = 0;
-        if(keyH.checkDrawTime) {
+        if (keyH.checkDrawTime) {
             drawStart = System.nanoTime();
         }
 
         //TITLE SCREEN
-        if(gameState == titleState){
+        if (gameState == titleState){
             ui.draw(graphics2);
         }
 
         //MAP SCREEN
-        else if(gameState == mapState) {
+        else if (gameState == mapState) {
             map.drawFullMapScreen(graphics2);
         }
 
@@ -229,22 +229,22 @@ public class GamePanel extends JPanel implements Runnable {
             characterList.add(player);
 
             for(int i = 0; i< npc[0].length;i++){
-                if(npc[currentMap][i]!=null){
+                if (npc[currentMap][i]!=null){
                     characterList.add(npc[currentMap][i]);
                 }
             }
             for (int i = 0; i < obj[0].length; i++) {
-                if(obj[currentMap][i]!=null){
+                if (obj[currentMap][i]!=null){
                     characterList.add(obj[currentMap][i]);
                 }
             }
             for (int i = 0; i < monster[0].length; i++) {
-                if(monster[currentMap][i]!=null){
+                if (monster[currentMap][i]!=null){
                     characterList.add(monster[currentMap][i]);
                 }
             }
             for (int i = 0; i < projectileList.size(); i++) {
-                if(projectileList.get(i)!=null){
+                if (projectileList.get(i)!=null){
                     characterList.add(projectileList.get(i));
                 }
             }
@@ -265,10 +265,10 @@ public class GamePanel extends JPanel implements Runnable {
             }
 
             tileM.draw2(graphics2);
-            if(eHandler.isBossbattlele()==true) {
-                if(monster[currentMap][2]!=null){
+            if (eHandler.isBossbattlele()==true) {
+                if (monster[currentMap][2]!=null){
                     monster[currentMap][2].draw(graphics2);
-                }else if(monster[currentMap][26]!=null){
+                }else if (monster[currentMap][26]!=null){
                     monster[currentMap][26].draw(graphics2);
                 }
 

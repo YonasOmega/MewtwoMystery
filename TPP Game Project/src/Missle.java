@@ -41,14 +41,14 @@ public class Missle extends Character {
         int yDistance = Math.abs(worldY - gp.player.worldY);
         int tileDistance = (xDistance + yDistance)/gp.tileSize;
 
-        if( onPath == false && tileDistance < 5){
+        if ( onPath == false && tileDistance < 5){
             int i = new Random().nextInt(100)+1;
-                    if(i>50){
+                    if (i>50){
                         onPath= true;
                     }
 
         }
-        if(onPath==true&&tileDistance>50){
+        if (onPath==true&&tileDistance>50){
             onPath = false;
         }
         if (gp.cChecker.checkPlayer(this) || timer >= 600) {
@@ -57,7 +57,7 @@ public class Missle extends Character {
     }
     public void setAction() {
 
-        if(onPath == true ) {
+        if (onPath == true ) {
 //            int goalCol = 39;
 //            int goalRow = 7;
             int goalCol = (gp.player.worldX + gp.player.solidArea.x)/gp.tileSize;
@@ -97,9 +97,9 @@ public class Missle extends Character {
         actionLockCounter = 0;
 
         onPath=true;
-        if(gp.player.direction.equals("up-right") || gp.player.direction.equals("down-right")) {
+        if (gp.player.direction.equals("up-right") || gp.player.direction.equals("down-right")) {
             direction = "right";
-        } else if(gp.player.direction.equals("up-left") || gp.player.direction.equals("down-left")) {
+        } else if (gp.player.direction.equals("up-left") || gp.player.direction.equals("down-left")) {
             direction = "left";
         } else {
             direction = gp.player.direction;

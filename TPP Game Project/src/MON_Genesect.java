@@ -41,20 +41,20 @@ public class MON_Genesect extends Character {
         int yDistance = Math.abs(worldY - gp.player.worldY);
         int tileDistance = (xDistance + yDistance)/gp.tileSize;
 
-        if(onPath == false && tileDistance < 5){
+        if (onPath == false && tileDistance < 5){
             int i = new Random().nextInt(100)+1;
-            if(i>50){
+            if (i>50){
                 onPath= true;
             }
 
         }
-        if(onPath==true&&tileDistance>20){
+        if (onPath==true&&tileDistance>20){
             onPath = false;
         }
     }
     public void setAction() {
 
-        if(onPath == true ) {
+        if (onPath == true ) {
 //            int goalCol = 39;
 //            int goalRow = 7;
             int goalCol = (gp.player.worldX + gp.player.solidArea.x)/gp.tileSize;
@@ -62,10 +62,10 @@ public class MON_Genesect extends Character {
 
             searchPath(goalCol, goalRow);
 
-            if(shotAvailableCounter1%25==0) {
+            if (shotAvailableCounter1%25==0) {
 //                System.out.println(shotAvailableCounter1+"\n"+"--------");
 
-                if(shotAvailableCounter%15==0) {
+                if (shotAvailableCounter%15==0) {
 
 
                     OBJ_Boss_Projectile proj = new OBJ_Boss_Projectile(gp, this);
@@ -74,15 +74,15 @@ public class MON_Genesect extends Character {
                     gp.projectileList.add(proj);
                 }
             }
-            if(shotAvailableCounter1==50){
+            if (shotAvailableCounter1==50){
 
             }
-            if(shotAvailableCounter1 == 100){
+            if (shotAvailableCounter1 == 100){
                 shotAvailableCounter1 = 0;
 
 
             }
-            if(shotAvailableCounter1 < 100) {
+            if (shotAvailableCounter1 < 100) {
                 shotAvailableCounter1++;
             }
 
@@ -116,9 +116,9 @@ public class MON_Genesect extends Character {
         actionLockCounter = 0;
 
         onPath=true;
-        if(gp.player.direction.equals("up-right") || gp.player.direction.equals("down-right")) {
+        if (gp.player.direction.equals("up-right") || gp.player.direction.equals("down-right")) {
             direction = "right";
-        } else if(gp.player.direction.equals("up-left") || gp.player.direction.equals("down-left")) {
+        } else if (gp.player.direction.equals("up-left") || gp.player.direction.equals("down-left")) {
             direction = "left";
         } else {
             direction = gp.player.direction;
