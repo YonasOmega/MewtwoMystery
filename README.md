@@ -12,10 +12,10 @@ The installation of this game is quick and simple! All you need to do is downloa
 
 ## Gameplay
 
-# How to play the game
+### How to play the game
 When you enter to the game use W,A,S, and D keys to move around the map and try to collect all the keys. Avoid getting killed by the various enemies in the map by using your mewtwo's special phychic power with mouse input or avoiding them by good movement. With the keys you can unlock the doors to the boss room where you will face the boss. The boss has 3 different phases and once he's defeated he will drop a key to the door the goes to the portal. Finally, you go through the door and into the portal and congrats! You win! You can retry for a better time!
 
-# Game Controls
+### Game Controls
 | KeyBind  | Action |
 | ------------- | ------------- |
 | W  | Moves Up  |
