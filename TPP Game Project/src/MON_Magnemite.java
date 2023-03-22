@@ -6,7 +6,7 @@ public class MON_Magnemite extends Character {
 
         type = 2;
         name = "Green Slime";
-        speed = 4;
+        speed = 2;
         maxLife = 15;
         life = maxLife;
         attack = 5;
@@ -53,8 +53,6 @@ public class MON_Magnemite extends Character {
     public void setAction() {
 
         if(onPath == true ) {
-//            int goalCol = 39;
-//            int goalRow = 7;
             int goalCol = (gp.player.worldX + gp.player.solidArea.x)/gp.tileSize;
             int goalRow = (gp.player.worldY + gp.player.solidArea.y)/gp.tileSize;
 

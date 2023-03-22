@@ -16,7 +16,7 @@ public class AssetSetter {
         gp.obj[mapNum][1].worldX = 104 * gp.tileSize;
         gp.obj[mapNum][1].worldY = 173 * gp.tileSize;
 
-        gp.obj[mapNum][2] = new OBJ_Boots(gp);
+        gp.obj[mapNum][2] = new OBJ_XSpeed(gp);
         gp.obj[mapNum][2].worldX = 148 * gp.tileSize;
         gp.obj[mapNum][2].worldY = 100 * gp.tileSize;
 
@@ -32,7 +32,7 @@ public class AssetSetter {
         gp.obj[mapNum][5].worldX = 125 * gp.tileSize;
         gp.obj[mapNum][5].worldY = 72 * gp.tileSize;
 
-        gp.obj[mapNum][6] = new OBJ_Chest(gp);
+        gp.obj[mapNum][6] = new OBJ_Portal(gp);
         gp.obj[mapNum][6].worldX = 125 * gp.tileSize;
         gp.obj[mapNum][6].worldY = 19 * gp.tileSize;
 
@@ -105,10 +105,6 @@ public class AssetSetter {
         gp.monster[mapNum][14].worldX = gp.tileSize * 114;
         gp.monster[mapNum][14].worldY = gp.tileSize * 179;
 
-        gp.monster[mapNum][15] = new MON_Magnemite(gp);
-        gp.monster[mapNum][15].worldX = gp.tileSize * 23;
-        gp.monster[mapNum][15].worldY = gp.tileSize * 37;
-
         gp.monster[mapNum][16] = new MON_Magnemite(gp);
         gp.monster[mapNum][16].worldX = gp.tileSize * 88;
         gp.monster[mapNum][16].worldY = gp.tileSize * 88;
@@ -160,7 +156,7 @@ public class AssetSetter {
         gp.monster[mapNum][29] = new MON_Joltik_With_Key(gp);
         gp.monster[mapNum][29].worldX = gp.tileSize * 90;
         gp.monster[mapNum][29].worldY = gp.tileSize * 72;
-        
+
         gp.monster[mapNum][30] = new MON_Magnemite(gp);
         gp.monster[mapNum][30].worldX = gp.tileSize * 175;
         gp.monster[mapNum][30].worldY = gp.tileSize * 84;

@@ -30,7 +30,6 @@ public class Player extends Character{
 
         attackArea = new Rectangle(0,0,36,36);
 
-        getPlayerAttackImage();
         setDefaultValues();
 
         getplayerImage();
@@ -96,18 +95,6 @@ public class Player extends Character{
         right2 = setup("TPP Game Project/res/player/super_mewtwo_right_2",gp.tileSize,gp.tileSize*i);
         left1 = setup("TPP Game Project/res/player/super_mewtwo_left_1",gp.tileSize,gp.tileSize*i);
         left2 = setup("TPP Game Project/res/player/super_mewtwo_left_2",gp.tileSize,gp.tileSize*i);
-    }
-    public void getPlayerAttackImage(){
-        attackUp1 = setup("TPP Game Project/res/player/boy_attack_up_1",gp.tileSize,gp.tileSize*2);
-        attackUp2 = setup("TPP Game Project/res/player/boy_attack_up_2",gp.tileSize,gp.tileSize*2);
-        attackDown1 = setup("TPP Game Project/res/player/boy_attack_down_1",gp.tileSize,gp.tileSize*2);
-        attackDown2 = setup("TPP Game Project/res/player/boy_attack_down_2",gp.tileSize,gp.tileSize*2);
-        attackRight1 = setup("TPP Game Project/res/player/boy_attack_right_1",gp.tileSize*2,gp.tileSize);
-        attackRight2 = setup("TPP Game Project/res/player/boy_attack_right_2",gp.tileSize*2,gp.tileSize);
-        attackLeft1 = setup("TPP Game Project/res/player/boy_attack_left_1",gp.tileSize*2,gp.tileSize);
-        attackLeft2 = setup("TPP Game Project/res/player/boy_attack_left_2",gp.tileSize*2,gp.tileSize);
-
-
     }
     /**
          *  Updates the player data (60FPS).
@@ -284,13 +271,13 @@ public class Player extends Character{
                         gp.ui.showMessage("You need a key!");
                     }
                     break;
-                case "Boots":
+                case "XSpeed":
                     gp.playSE(3);
                     currentSpeed += 5;        // if you make this 100 you weirdly can barely move.
                     gp.obj[gp.currentMap][i] = null;
                     gp.ui.showMessage("Speed up!");
                     break;
-                case "Chest":
+                case "Portal":
                     gp.ui.gameFinished = true;
                     gp.stopMusic();
                     gp.playSE(0);//needs work
