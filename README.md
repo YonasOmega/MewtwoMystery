@@ -27,7 +27,7 @@ When you enter to the game use W,A,S, and D keys to move around the map and try 
 | Left Click  | Shoot Projectile  |
 
 ## Resources
-Here I'll list helpful resources that me and my partner used to make this project come to be.
+Here I'll list helpful resources that we used to make this project come to be.
 * RyiSnow: How to make a 2D Game in Java.
 
 https://www.youtube.com/watch?v=om59cwR7psI&list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq
