@@ -25,3 +25,13 @@ When you enter to the game use W,A,S, and D keys to move around the map and try 
 | M  | Opens Map  |
 | Enter  | Interact  |
 | Left Click  | Shoot Projectile  |
+
+## Resources
+Here I'll list helpful resources that me and my partner used to make this project come to be.
+* RyiSnow: How to make a 2D Game in Java.
+https://www.youtube.com/watch?v=om59cwR7psI&list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq
+This playlist gave us a great understanding on how to make a 2d game. We followed the fundimental conncepts of this game development from refering to this tutorial and learned how to expand from it.
+* Mewtwo sprite made by Othienka
+https://www.deviantart.com/othienka/art/Black-Armored-Shiny-Mewtwo-Spritesheet-461140884
+* Portal sprite made by LetargicDev
+https://opengameart.org/content/portals
