@@ -439,7 +439,7 @@ public class Player extends Character{
 
         //Changes image, puts it where it goes, changes how big it is.
        // graphics2.drawImage(image, screenX, screenY,null);
-       //graphics2.drawRect(screenX + solidArea.x, screenY + solidArea.y, solidArea.width, solidArea.height);
+        //graphics2.drawRect(screenX + solidArea.x, screenY + solidArea.y, solidArea.width, solidArea.height);
        // graphics2.drawRect(gp.Pathnode[col][row].col,node[col][row].row);
 
 
