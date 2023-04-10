@@ -73,10 +73,10 @@ public class Player extends Character{
         invincible = false;
     }
     public int getAttack(){
-        return attack = strength*currentWeapon.attackValue;
+        return attack;
     }
     public int getDefense(){
-        return defense = dexterity * currentShield.defenseValue;
+        return defense;
     }
 
 

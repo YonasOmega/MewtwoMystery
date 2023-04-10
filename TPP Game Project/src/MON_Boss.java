@@ -10,6 +10,7 @@ public class MON_Boss extends Character {
     int missleCounter = 0;
     int i=1;
     int shotAvailableCounter1;
+    private Random random = new Random();
     public MON_Boss(GamePanel gp) {
         super(gp);
         type = 4;
@@ -62,7 +63,7 @@ public class MON_Boss extends Character {
         int tileDistance = (xDistance + yDistance)/gp.tileSize;
 
         if (onPath == false && tileDistance < 5){
-            int i = new Random().nextInt(100)+1;
+            int i = random.nextInt(100)+1;
             if (i>50){
                 onPath= true;
             }
@@ -76,7 +77,6 @@ public class MON_Boss extends Character {
 
        if (inRage == false && life < 50) {
             inRage = true;
-            getImage();
             speed++;
         }
         if (life <= 0) {

@@ -1,13 +1,14 @@
 public class AssetSetter {
     GamePanel gp;
+    int mapNum;
 
     public AssetSetter(GamePanel gp) {
         this.gp = gp;
+        mapNum = 0;
     }
 
     public void setObject() {
 
-        int mapNum= 0;
         gp.obj[mapNum][0] = new OBJ_Key(gp);
         gp.obj[mapNum][0].worldX = 170 * gp.tileSize; //object location
         gp.obj[mapNum][0].worldY = 80 * gp.tileSize;
