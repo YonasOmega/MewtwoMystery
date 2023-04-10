@@ -8,7 +8,22 @@
 Welcome to my game! In this game you take the role of the legendary psychic pokemon, mewtwo. Who is trapped in a laboratory and must fina a way to escape. The laboratory is full of obstacles and ememies that mewtwo must avoid in order to collect keys that will unlock doors to the boss room.
 
 ## Installation
-The installation of this game is quick and simple! All you need to do is download the ZIP folder of the main branch repo. Then you extract the ZIP folder and run the program in the IDE of your choice. Finally run the program in Main.java and select New Game once the application is open and there you have it! This program will require JDK 14 and above
+1. Download the ZIP folder of the main branch repo from the GitHub repository.
+2. Extract the ZIP folder to a directory of your choice on your computer.
+3. Ensure that you have JDK 14 or above installed on your system. If not, you can download and install it from the official Oracle website.
+4. Open your preferred Integrated Development Enviroment (IDE) that supports Java.
+5. Navigate to the extracted folder in your IDE and open the 'Main.java' file.
+6. Compile and run the program in your IDE.
+7. Once the application is open, select "Load Game" to start playing!
+
+If you encounter any issues during installation, here are some troubleshooting tips:
+
+* ensure that you have correctly installed JDK 14 or above.
+* Make sure you have extracted the ZIP folder properly and are running the program from the correct file location.
+* Double-check that your IDE is configured correctly with the correct JDK version.
+* If you are facing any specific error messages, refer to relevant resources or seek assistance from the project contributors. Here is my email that you can send any questions or issues you have reguarding the game: yonas123@uw.edu
+
+That's it! You should now be able to install and run the game on your system. Enjoy playing.
 
 ## Gameplay
 
