@@ -5,7 +5,7 @@
 * Patrick Quaidoo
 
 ## Overview
-Welcome to my game! In this game you take the role of the legendary psychic pokemon, mewtwo. Who is trapped in a laboratory and must fina a way to escape. The laboratory is full of obstacles and ememies that mewtwo must avoid in order to collect keys that will unlock doors to the boss room.
+Welcome to our game! In this game you take the role of the legendary psychic pokemon, mewtwo. Who is trapped in a laboratory and must fina a way to escape. The laboratory is full of obstacles and ememies that mewtwo must avoid in order to collect keys that will unlock doors to the boss room.
 
 ## Installation
 1. Download the ZIP folder of the main branch repo from the GitHub repository.
