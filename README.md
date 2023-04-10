@@ -40,3 +40,8 @@ https://www.deviantart.com/othienka/art/Black-Armored-Shiny-Mewtwo-Spritesheet-4
 * Portal sprite made by LetargicDev
 
 https://opengameart.org/content/portals
+
+* Joltik sprite made by PowerCristal
+
+https://www.deviantart.com/powercristal/art/Joltik-PMD-custom-sprites-297096608
+
