@@ -5,7 +5,7 @@ import java.net.MalformedURLException;
 public class Main {
     /**
      * Acts as Game Driver
-     *w
+     *
      * @param args
      */
     public static void main(String[] args) throws MalformedURLException {

@@ -73,10 +73,10 @@ public class Player extends Character{
         invincible = false;
     }
     public int getAttack(){
-        return attack = strength*currentWeapon.attackValue;
+        return attack;
     }
     public int getDefense(){
-        return defense = dexterity * currentShield.defenseValue;
+        return defense;
     }
 
 
@@ -84,52 +84,64 @@ public class Player extends Character{
      *  Gets player sprites from res directory.
      */
     public void getplayerImage(){
-        //up1. ImageIO.read(getClass().getResourceAsStream("TPP Game Project/res/player/boy_up_1"));
-        //what was used in tutorial ^
+        StringBuilder sb = new StringBuilder();
         int i=2;
-        up1 = setup("TPP Game Project/res/player/super_mewtwo_up_1",gp.tileSize,gp.tileSize*i);
-        up2 = setup("TPP Game Project/res/player/super_mewtwo_up_2",gp.tileSize,gp.tileSize*i);
-        down1 = setup("TPP Game Project/res/player/super_mewtwo_down_1",gp.tileSize,gp.tileSize*i);
-        down2 = setup("TPP Game Project/res/player/super_mewtwo_down_2",gp.tileSize,gp.tileSize*i);
-        right1 = setup("TPP Game Project/res/player/super_mewtwo_right_1",gp.tileSize,gp.tileSize*i);
-        right2 = setup("TPP Game Project/res/player/super_mewtwo_right_2",gp.tileSize,gp.tileSize*i);
-        left1 = setup("TPP Game Project/res/player/super_mewtwo_left_1",gp.tileSize,gp.tileSize*i);
-        left2 = setup("TPP Game Project/res/player/super_mewtwo_left_2",gp.tileSize,gp.tileSize*i);
+        String basePath = "TPP Game Project/res/player/super_mewtwo_";
+        up1 = setup(sb.append(basePath).append("up_1").toString(),gp.tileSize,gp.tileSize*i);
+        sb.setLength(0);
+        up2 = setup(sb.append(basePath).append("up_2").toString(),gp.tileSize,gp.tileSize*i);
+        sb.setLength(0);
+        down1 = setup(sb.append(basePath).append("down_1").toString(),gp.tileSize,gp.tileSize*i);
+        sb.setLength(0);
+        down2 = setup(sb.append(basePath).append("down_2").toString(),gp.tileSize,gp.tileSize*i);
+        sb.setLength(0);
+        right1 = setup(sb.append(basePath).append("right_1").toString(),gp.tileSize,gp.tileSize*i);
+        sb.setLength(0);
+        right2 = setup(sb.append(basePath).append("right_2").toString(),gp.tileSize,gp.tileSize*i);
+        sb.setLength(0);
+        left1 = setup(sb.append(basePath).append("left_1").toString(),gp.tileSize,gp.tileSize*i);
+        sb.setLength(0);
+        left2 = setup(sb.append(basePath).append("left_2").toString(),gp.tileSize,gp.tileSize*i);
     }
     /**
          *  Updates the player data (60FPS).
      */
     public void update(){
         //System.out.println(attacking);
+        boolean upPressed = keyH.upPressed;
+        boolean leftPressed = keyH.leftPressed;
+        boolean rightPressed = keyH.rightPressed;
+        boolean downPressed = keyH.downPressed;
+        boolean enterPressed = keyH.enterPressed;
         if (attacking == true){
             attacking();
             //System.out.println("attacking is true");
-        } else if (keyH.upPressed==true||keyH.downPressed==true||
-                keyH.leftPressed==true||keyH.rightPressed==true|| keyH.enterPressed == true) { //Checks all player input to see if moving. (so player animation doesn't move when player is still).
+        } else if (upPressed||downPressed||
+                leftPressed||rightPressed|| enterPressed) { //Checks all player input to see if moving. (so player animation doesn't move when player is still).
             //System.out.println("attacking is false");
             //Subtracts speed from x & y coordinates and sets direction for sprite.
-            if (keyH.upPressed && keyH.leftPressed) {
+            if (upPressed && leftPressed) {
                 direction = "up-left";
 
-            } else if (keyH.upPressed && keyH.rightPressed) {
+            } else if (upPressed && rightPressed) {
                 direction = "up-right";
 
-            } else if (keyH.downPressed && keyH.leftPressed) {
+            } else if (downPressed && leftPressed) {
                 direction = "down-left";
 
-            } else if (keyH.downPressed && keyH.rightPressed) {
+            } else if (downPressed && rightPressed) {
                 direction = "down-right";
 
-            } else if (keyH.upPressed) {
+            } else if (upPressed) {
                 direction = "up";
 
-            } else if (keyH.downPressed) {
+            } else if (downPressed) {
                 direction = "down";
 
-            } else if (keyH.rightPressed) {
+            } else if (rightPressed) {
                 direction = "right";
 
-            } else if (keyH.leftPressed) {
+            } else if (leftPressed) {
                 direction = "left";
 
             }

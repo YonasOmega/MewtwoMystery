@@ -25,7 +25,7 @@ public class TileManager {
             setup(0, "black", false);
             setup(1, "floor", false);
             setup(2, "top", true);
-            setup(3, "earth", false);
+      //      setup(3, "earth", false);
             setup(4, "sand", true);
             setup(5, "wall2", true);
             setup(6, "black", true);

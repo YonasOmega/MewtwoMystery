@@ -53,34 +53,37 @@ public class CollisionChecker { //test
                 }
                 break;
             case "up-right":
-                charRightCol = (charRightWorldX + chara.speed) / gp.tileSize;//d
+                charRightCol = (charRightWorldX + chara.speed) / gp.tileSize;
+                charTopRow = (charTopWorldY - chara.speed) / gp.tileSize; // Update charTopRow based on diagonal direction
                 tileNum1 = gp.tileM.mapTileNum[gp.currentMap][charRightCol][charTopRow];
-                tileNum2 = gp.tileM.mapTileNum[gp.currentMap][charRightCol][charTopRow];
-                if (gp.tileM.Tiles[tileNum1].collision == true || gp.tileM.Tiles[tileNum2].collision == true) {
+                if (gp.tileM.Tiles[tileNum1].collision == true) {
                     chara.collisionOn = true;
                 }
                 break;
+
             case "up-left":
                 charLeftCol = (charLeftWorldX - chara.speed) / gp.tileSize;
+                charTopRow = (charTopWorldY - chara.speed) / gp.tileSize; // Update charTopRow based on diagonal direction
                 tileNum1 = gp.tileM.mapTileNum[gp.currentMap][charLeftCol][charTopRow];
-                tileNum2 = gp.tileM.mapTileNum[gp.currentMap][charLeftCol][charTopRow];
-                if (gp.tileM.Tiles[tileNum1].collision == true || gp.tileM.Tiles[tileNum2].collision == true) {
+                if (gp.tileM.Tiles[tileNum1].collision == true) {
                     chara.collisionOn = true;
                 }
                 break;
+
             case "down-right":
                 charRightCol = (charRightWorldX + chara.speed) / gp.tileSize;
+                charBottomRow = (charBottomWorldY + chara.speed) / gp.tileSize; // Update charBottomRow based on diagonal direction
                 tileNum1 = gp.tileM.mapTileNum[gp.currentMap][charRightCol][charBottomRow];
-                tileNum2 = gp.tileM.mapTileNum[gp.currentMap][charRightCol][charBottomRow];
-                if (gp.tileM.Tiles[tileNum1].collision == true || gp.tileM.Tiles[tileNum2].collision == true) {
+                if (gp.tileM.Tiles[tileNum1].collision == true) {
                     chara.collisionOn = true;
                 }
                 break;
+
             case "down-left":
                 charLeftCol = (charLeftWorldX - chara.speed) / gp.tileSize;
+                charBottomRow = (charBottomWorldY + chara.speed) / gp.tileSize; // Update charBottomRow based on diagonal direction
                 tileNum1 = gp.tileM.mapTileNum[gp.currentMap][charLeftCol][charBottomRow];
-                tileNum2 = gp.tileM.mapTileNum[gp.currentMap][charLeftCol][charBottomRow];
-                if (gp.tileM.Tiles[tileNum1].collision == true || gp.tileM.Tiles[tileNum2].collision == true) {
+                if (gp.tileM.Tiles[tileNum1].collision == true) {
                     chara.collisionOn = true;
                 }
                 break;
