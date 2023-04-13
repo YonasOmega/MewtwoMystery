@@ -14,7 +14,7 @@ Welcome to our game! In this game you take the role of the legendary psychic pok
 4. Open your preferred Integrated Development Enviroment (IDE) that supports Java.
 5. Navigate to the extracted folder in your IDE and open the 'Main.java' file.
 6. Compile and run the program in your IDE.
-7. Once the application is open, select "Load Game" to start playing!
+7. Once the application is open, select "New Game" to start playing!
 
 If you encounter any issues during installation, here are some troubleshooting tips:
 
